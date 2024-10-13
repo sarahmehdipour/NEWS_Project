@@ -1,0 +1,6 @@
+.venv 
+/venv
+.env
+
+db.sqlit3
+.DS_Store
