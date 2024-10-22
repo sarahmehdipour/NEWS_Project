@@ -1,0 +1,29 @@
+
+
+{{new.description}}
+
+<br/>
+
+
+
+categories :
+{% for cat in new.category.all %}
+<small><a href="{% url "news:category" category=cat.title %}" >{{cat.title}}</a></small>
+{% endfor %}
+
+<br/>
+{% comment %} 
+
+Tags  :
+{% for tag in new.Tag.all %}
+<p style="display:inline;">{{tag.title}}  &nbsp;  /  &nbsp;</p>
+
+{% endfor %} {% endcomment %}
+
+
+Tags :
+{% for tag in new.Tag.all %}
+<small><a href="{% url "news:tag" tag=tag.title %}" >{{tag.title}}</a></small>
+{% endfor %}
+
+<br/>

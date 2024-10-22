@@ -3,9 +3,17 @@
 
 
 {% for new in news %}
-
+<div>
+<a href="{% url "news:detail" num=new.id %}">
 {{new.id}} - {{new.title}} <br/>
 {{new.breif_description}} <br/>
 {{new.created_time}} <br/>
+</a>
 
+
+
+</div>
+
+<br/><br/>
 {% endfor %}
+

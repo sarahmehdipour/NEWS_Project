@@ -16,10 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import list_news
+from .views import list_news , detail_news
 app_name="news"
 
 urlpatterns = [
     path('', list_news ,name="news"),
+    path('detail/<int:num>/', detail_news ,name="detail"),
+    path('category/<category>/', list_news ,name="category"),
+    path('tag/<tag>/', list_news ,name="tag"),
  
 ]
