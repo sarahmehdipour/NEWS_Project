@@ -27,6 +27,14 @@
 </head>
 
 <body>
+
+<form method="POST" >
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">send message </button>
+</form>
+
+
    
     <!-- Preloader Start -->
     <div id="preloader-active">

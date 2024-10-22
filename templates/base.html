@@ -26,6 +26,8 @@
    </head>
 
    <body>
+
+    {% include "message.html" %}
        
     <!-- Preloader Start -->
     <!-- <div id="preloader-active">
@@ -98,7 +100,7 @@
                                             <li><a href="categori.html">Category</a></li>
                                             <li><a href="about.html">About</a></li>
                                             <li><a href="latest_news.html">Latest News</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="{% url "website:contact" %}">Contact</a></li>
                                             <li><a href="#">Pages</a>
                                                 <ul class="submenu">
                                                     <li><a href="elements.html">Element</a></li>
