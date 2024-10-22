@@ -3,7 +3,7 @@ from .models import News,Category,Tag
 
 
 def list_news(request ,**kwargs):
-    news=News.objects.filter(active=True)
+    news=News.objects.filter(active=True).order_by('-created_time')
 
     if kwargs.get('category'):
         news=news.filter(category__title=kwargs['category'])
@@ -11,6 +11,15 @@ def list_news(request ,**kwargs):
     
     if kwargs.get('tag'):
          news=news.filter(Tag__title=kwargs['tag'])
+
+
+    search=request.GET.get('q')
+    if search:
+        news=news.filter(title__icontains=search)
+
+
+    if kwargs.get('author'):
+        news=news.filter(author__username=kwargs['author'])
         
 
 

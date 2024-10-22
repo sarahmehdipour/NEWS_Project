@@ -24,5 +24,6 @@ urlpatterns = [
     path('detail/<int:num>/', detail_news ,name="detail"),
     path('category/<category>/', list_news ,name="category"),
     path('tag/<tag>/', list_news ,name="tag"),
+    path('author/<author>/',list_news,name="author"),
  
 ]
