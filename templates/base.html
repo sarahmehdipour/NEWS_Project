@@ -97,17 +97,23 @@
                                     <nav>                  
                                         <ul id="navigation">    
                                             <li><a href="{% url "news:news" %}">news</a></li>
-                                            <li><a href="categori.html">Category</a></li>
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="latest_news.html">Latest News</a></li>
+
                                             <li><a href="{% url "website:contact" %}">Contact</a></li>
-                                            <li><a href="#">Pages</a>
+                                            
+
+                                            {% if request.user.is_authenticated  %}
+                                            <li><a href="{% url "accounts:logout" %}">logout</a></li>
+                                            
+                                            {% else %}
+                                            <li><a href="{% url "accounts:login" %}">account</a></li>
+                                            {% endif %}
+                                            {% comment %} <li><a href="#">Pages</a>
                                                 <ul class="submenu">
                                                     <li><a href="elements.html">Element</a></li>
                                                     <li><a href="blog.html">Blog</a></li>
                                                     <li><a href="single-blog.html">Blog Details</a></li>
                                                     <li><a href="details.html">Categori Details</a></li>
-                                                </ul>
+                                                </ul> {% endcomment %}
                                             </li>
                                         </ul>
                                     </nav>

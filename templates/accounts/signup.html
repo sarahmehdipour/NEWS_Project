@@ -1,0 +1,55 @@
+
+
+
+
+
+
+{% load static %}
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel=stylesheet href="{% static "css/login.css" %} ">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<body>
+
+
+
+
+    {% include "message.html" %}
+
+
+    <h1 style="width:100%;background-color:yellow;height:80px;padding:5px 0px 3px 30px">signup</h1>
+
+<div class="d-flex justify-content-center" >
+                        <form action="{% url "accounts:signup" %}" method="POST">
+                          {% csrf_token %}
+                           
+                            <div class="form-group">
+                                <label>Username:</label><br>
+                                <input type="text" name="username" id="username" >
+                            </div>
+
+                            <div class="form-group">
+                                <label>Password:</label><br>
+                                <input type="text" name="password1" id="password" >
+                            </div>
+
+
+                            <div class="form-group">
+                              <label>repete password :</label><br>
+                              <input type="text" name="password2" id="password" >
+                          </div>
+
+                            <div class="form-group">
+                                {% comment %} <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label>{% endcomment %}<br> 
+                                <input type="submit" name="submit"  value="submit">
+                            </div>
+                            <div id="register-link" class="text-right">
+                                {% comment %} <a href="{% url "accounts:signup" %}" class="text-info">Sign up </a> {% endcomment %}
+                            </div>
+                        </form>
+
+
+                      </div>

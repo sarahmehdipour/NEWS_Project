@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'website',
     'news',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -131,6 +132,15 @@ MEDIA_URL = 'media/'
 
 MEDIA_ROOT = BASE_DIR/"media/"
 
+
+
+
+
+
+#login and logout url
+LOGIN='/'
+LOGIN_REDIRECT_URL = 'accounts:login'
+LOGOUT_REDIRECT_URL = '/'
 
 
 # Default primary key field type
