@@ -1,20 +1,22 @@
 
+{% extends "base.html" %}
+{% load static %}
 
 
 
 
 
 
-{{new.description}}
+{% block content %}
+
+
+
 
 <br/>
 
 
 
-categories :
-{% for cat in new.category.all %}
-<small><a href="{% url "news:category" category=cat.title %}" >{{cat.title}}</a></small>
-{% endfor %}
+
 
 <br/>
 {% comment %} 
@@ -26,9 +28,53 @@ Tags  :
 {% endfor %} {% endcomment %}
 
 
-Tags :
-{% for tag in new.Tag.all %}
-<small><a href="{% url "news:tag" tag=tag.title %}" >{{tag.title}}</a></small>
-{% endfor %}
 
-<br/>
+
+
+
+                   <div class="row">
+                        <div class="col-lg-8">
+                            <!-- Trending Tittle -->
+                            <div class="about-right mb-90">
+                                <div class="about-img">
+                                    <img style="width:100%;height:250px" src="{{new.image.url}}" alt="">
+                                </div>
+                                <div class="section-tittle mb-30 pt-30">
+                                    <h3>{{new.title}}</h3>
+                                </div>
+                                <div class="about-prea">
+                                    <h5 class="about-pera1 mb-25">{{new.breif_description}}</h5>
+                                   <p class="about-pera1 mb-25">
+                                            {{new.description}}</p>
+                                </div> 
+
+                              
+                                <p class="about-pera1 mb-25 ">
+
+                                  categories :
+                                  {% for cat in new.category.all %}
+                                  <small><a class="text-dark" href="{% url "news:category" category=cat.title %}" >{{cat.title}}</a></small>
+                                  {% endfor %}
+
+
+                                  <br/>
+
+                                    Tags :
+                                    {% for tag in new.Tag.all %}
+                                    <small><a  class="text-dark" href="{% url "news:tag" tag=tag.title %}" >{{tag.title}}</a></small>
+                                    {% endfor %}
+
+                                    <br/>
+
+
+                                  
+                                
+                                
+                                </div>
+
+
+
+
+
+                   {% endblock content %}
+

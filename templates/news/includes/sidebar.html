@@ -1,0 +1,30 @@
+
+                    
+                    <!-- Side bar  -->
+                    
+
+
+                    <div class="col-lg-4">
+
+
+                      <form method="GET">
+                          <input name='q' type="text" placeholder="Search.." name="search">
+                          <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                        <br/>
+                      <h5>recent news</h5>  <br/>
+                      {% for new in news %}
+                      <div class="trand-right-single d-flex">
+                          <div class="trand-right-img">
+                              <img style="width50px;height:50px" src="{{new.image.url}}" alt="">
+                          </div>
+                          <div class="trand-right-cap">
+                              <span class="color1">{{new.title}}</span>
+                              <h4><a href="#">{{new.title}}</a></h4>
+                          </div>
+                          <br/>
+                          {% endfor %}
+                      </div>
+                      
+
+<!-- endSide bar  -->
