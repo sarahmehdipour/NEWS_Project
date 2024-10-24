@@ -14,7 +14,7 @@ class News(models.Model):
   created_time=models.DateTimeField(auto_now_add=True)
 
   author=models.ForeignKey(User,on_delete=models.CASCADE,blank=False)
-#   image=models.ImageField(upload_to='news/images/',default="news/images/1.png")
+  image=models.ImageField(upload_to='news/images/',default="news/images/1.jpg")
   category=models.ManyToManyField("Category")
   Tag=models.ManyToManyField("Tag")
   breif_description=models.CharField(max_length=80,null=True,blank=True)

@@ -1,3 +1,5 @@
+{% extends "base.html" %}
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -98,9 +100,46 @@ body {
 </div>
 
 
-
+{% block content %}
 
 {% for new in news %}
+
+
+                       
+<div class="trending-top mb-30">
+  <div class="trend-top-img">
+      <img src="{{new.image.url}}" alt="">
+      <div class="trend-top-cap">
+          <span>{{new.title}}</span>
+          <h2><a href="{% url "news:detail" num=new.id %}">{{new.breif_description}}<br> {{new.breif_description}}</a></h2>
+          <p class="text-white" style="dislplay:inline" >{{new.created_time}}</p>
+
+
+          <a class="text-white" style="dislplay:inline" >categories: </a>
+          {% for cat in new.category.all %}
+<small><a href="{% url "news:category" category=cat.title %}" >{{cat.title}} / </a></small>
+{% endfor %}
+
+
+<a class="text-white" style="dislplay:inline ml-3" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tags: </a>
+{% for tag in new.Tag.all %}
+<small><a href="{% url "news:tag" tag=tag.title %}" >{{tag.title}} # </a></small>
+{% endfor %}
+
+      <a class="text-white" href="{% url "news:author" author=new.author %}" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; craeted by : {{new.author}}</a>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+{% comment %} <img src="{{new.images.urls}}">
 <div>
 <a href="{% url "news:detail" num=new.id %}">
 {{new.id}} - {{new.title}} <br/>
@@ -116,13 +155,14 @@ Date : {{new.created_time}} <br/>
 
 </div>
 
-<br/><br/>
+<br/><br/> {% endcomment %}
 {% endfor %}
 
-
+{% endblock content %}
 
 </body>
 </html>
+
 
 
 
